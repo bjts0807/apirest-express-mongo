@@ -42,4 +42,13 @@ router.delete('/:tripId', async (req, res) => {
     }
 });
 
+router.get('/show/:tripId', async (req, res) => {
+    try {
+        const trip = await Trip.findById(req.params.tripId);
+        res.json(trip);
+    } catch (error) {
+        res.status(500).json({ error: 'Ha ocurrido un error' });
+    }
+});
+
 module.exports = router;

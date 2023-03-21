@@ -3,10 +3,17 @@ const app = require('../app');
 const mongoose=require('mongoose');
 const server=http.createServer(app);
 
-server.listen(3000);
+const port =3000;
 
-mongoose.connect('mongodb://127.0.0.1/familyTrips');
 
-server.on('listening',()=>{
-    console.log('el servidor esta escuchando en el puerto 3000');
-})
+mongoose.connect('mongodb://127.0.0.1/familyTrips')
+.then(()=>console.log('Connected tomongodb'))
+.catch((error)=>console.log(error));
+
+//server.listen(port);
+
+/* server.on('listening',()=>{
+    console.log(`el servidor esta escuchando en el puerto ${port}`);
+}) */
+
+server.listen(port,()=>console.log('server listening on port',port));
