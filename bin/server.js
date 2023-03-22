@@ -6,7 +6,7 @@ const server=http.createServer(app);
 const port =3000;
 
 
-mongoose.connect('mongodb://127.0.0.1/familyTrips')
+mongoose.connect('mongodb://127.0.0.1/membership')
 .then(()=>console.log('Connected tomongodb'))
 .catch((error)=>console.log(error));
 
